@@ -98,19 +98,22 @@ jobs:
     task: build
   serial: true
 resources:
-- name: git
+- icon: git
+  name: git
   source:
     branch: master
     uri: https://github.com/sirech/example-concourse-pipeline.git
   type: git
-- name: dev-container
+- icon: docker
+  name: dev-container
   source:
     insecure_registries:
     - registry:5000
     repository: registry:5000/dev-container
     tag: latest
   type: docker-image
-- name: serverspec-container
+- icon: docker
+  name: serverspec-container
   source:
     repository: sirech/dind-ruby
     tag: 2.6.3
